@@ -1,0 +1,249 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "autosize": {"type": "fit-x", "contains": "padding"},
+  "background": "white",
+  "padding": 5,
+  "height": 350,
+  "style": "cell",
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/GiridharSharma11/DataVisualisation2/main/Data%20Extraction/suicides_age_per_year.csv?token=GHSAT0AAAAAACJC3UVY4FTEDCMNIFBIPLXGZJQPT5Q",
+      "format": {"type": "csv", "parse": {"year": "date"}, "delimiter": ","},
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "Age_selection == null || datum.age == Age_selection"
+        }
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["age"],
+          "ops": ["max", "argmax"],
+          "fields": ["year", "year"],
+          "as": ["max_year", "argmax_year"]
+        },
+        {
+          "type": "filter",
+          "expr": "(isDate(datum[\"max_year\"]) || (isValid(datum[\"max_year\"]) && isFinite(+datum[\"max_year\"]))) && isValid(datum[\"argmax_year\"][\"suicides_per_100k\"]) && isFinite(+datum[\"argmax_year\"][\"suicides_per_100k\"])"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "width",
+      "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
+      "on": [
+        {
+          "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
+          "events": "window:resize"
+        }
+      ]
+    },
+    {
+      "name": "Age_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "5-14 years",
+          "15-24 years",
+          "25-34 years",
+          "35-54 years",
+          "55-74 years",
+          "75+ years"
+        ],
+        "labels": [
+          "Show All",
+          "05-14 years",
+          "15-24 years",
+          "25-34 years",
+          "35-54 years",
+          "55-74 years",
+          "75+ years"
+        ],
+        "name": "Age Group Selection: "
+      }
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_0_main",
+          "data": "source_0",
+          "groupby": ["age"]
+        }
+      },
+      "encode": {
+        "update": {
+          "width": {"field": {"group": "width"}},
+          "height": {"field": {"group": "height"}}
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_0_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "datum[\"year\"]"},
+          "from": {"data": "faceted_path_layer_0_main"},
+          "encode": {
+            "update": {
+              "stroke": {"scale": "color", "field": "age"},
+              "tooltip": {
+                "signal": "{\"Age Group\": isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"], \"Year\": timeFormat(datum[\"year\"], '%Y'), \"Average Suicide Rate\": format(datum[\"suicides_per_100k\"], \".2f\")}"
+              },
+              "description": {
+                "signal": "\"year: \" + (timeFormat(datum[\"year\"], '%b %d, %Y')) + \"; Suicide Rate Per 100K: \" + (format(datum[\"suicides_per_100k\"], \"\")) + \"; age: \" + (isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"]) + \"; Age Group: \" + (isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"]) + \"; Year: \" + (timeFormat(datum[\"year\"], '%Y')) + \"; Average Suicide Rate: \" + (format(datum[\"suicides_per_100k\"], \".2f\"))"
+              },
+              "x": {"scale": "x", "field": "year"},
+              "y": {"scale": "y", "field": "suicides_per_100k"},
+              "defined": {
+                "signal": "isValid(datum[\"year\"]) && isFinite(+datum[\"year\"]) && isValid(datum[\"suicides_per_100k\"]) && isFinite(+datum[\"suicides_per_100k\"])"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "layer_1_layer_0_marks",
+      "type": "symbol",
+      "style": ["circle"],
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "fill": {"scale": "color", "field": "age"},
+          "ariaRoleDescription": {"value": "circle"},
+          "description": {
+            "signal": "\"Max of year: \" + (timeFormat(datum[\"max_year\"], '%b %d, %Y')) + \"; suicides_per_100k for max year: \" + (format(datum[\"argmax_year\"][\"suicides_per_100k\"], \"\")) + \"; age: \" + (isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"])"
+          },
+          "x": {"scale": "x", "field": "max_year"},
+          "y": {"scale": "y", "field": "argmax_year[\"suicides_per_100k\"]"},
+          "shape": {"value": "circle"}
+        }
+      }
+    },
+    {
+      "name": "layer_1_layer_1_marks",
+      "type": "text",
+      "style": ["text"],
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "align": {"value": "left"},
+          "dx": {"value": 4},
+          "fill": {"scale": "color", "field": "age"},
+          "description": {
+            "signal": "\"Max of year: \" + (timeFormat(datum[\"max_year\"], '%b %d, %Y')) + \"; suicides_per_100k for max year: \" + (format(datum[\"argmax_year\"][\"suicides_per_100k\"], \"\")) + \"; age: \" + (isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"])"
+          },
+          "x": {"scale": "x", "field": "max_year"},
+          "y": {"scale": "y", "field": "argmax_year[\"suicides_per_100k\"]"},
+          "text": {
+            "signal": "isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"]"
+          },
+          "baseline": {"value": "middle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "year"},
+          {"data": "data_0", "field": "max_year"}
+        ]
+      },
+      "range": [0, {"signal": "width"}]
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "suicides_per_100k"},
+          {"data": "data_0", "field": "argmax_year[\"suicides_per_100k\"]"}
+        ]
+      },
+      "range": [{"signal": "height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "age"},
+          {"data": "data_0", "field": "age"}
+        ],
+        "sort": true
+      },
+      "range": "category"
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "gridScale": "y",
+      "grid": true,
+      "tickCount": {"signal": "ceil(width/40)"},
+      "domain": false,
+      "labels": false,
+      "aria": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "gridScale": "x",
+      "grid": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "domain": false,
+      "labels": false,
+      "aria": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "labelFlush": true,
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(width/40)"},
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Suicide Rate Per 100K",
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "zindex": 0
+    }
+  ],
+  "legends": [
+    {"stroke": "color", "symbolType": "circle", "title": "age", "fill": "color"}
+  ],
+  "config": {"style": {"cell": {"stroke": null}}}
+}

@@ -1,0 +1,197 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 900,
+  "height": 500,
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/ne_110m_ocean.json",
+      "format": {"type": "topojson", "feature": "ne_110m_ocean"}
+    },
+    {
+      "name": "source_1",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/bounding_box.json",
+      "format": {"type": "topojson", "feature": "ne_110m_wgs84_bounding_box"}
+    },
+    {
+      "name": "source_3",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/graticules.json",
+      "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+    },
+    {
+      "name": "source_5",
+      "url": "https://raw.githubusercontent.com/GiridharSharma11/DataVisualisation2/main/Data%20Extraction/suicides_by_country_100k.csv?token=GHSAT0AAAAAACJC3UVZUPU33HMZEK4375E4ZJQPNHA",
+      "format": {"type": "csv", "delimiter": ","}
+    },
+    {
+      "name": "source_2",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/basemap_2.json",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"},
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "'Data is not available in ' + datum.properties.NAME",
+          "as": "note"
+        }
+      ]
+    },
+    {
+      "name": "source_4",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/basemap.json",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_admin_0_countries",
+        "parse": {}
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum[\"properties\"] && datum[\"properties\"][\"NAME\"]",
+          "as": "properties.NAME"
+        },
+        {
+          "type": "lookup",
+          "from": "source_5",
+          "key": "country",
+          "fields": ["properties.NAME"],
+          "values": ["suicides_per_100k"]
+        },
+        {
+          "type": "formula",
+          "expr": "datum.suicides_per_100k ",
+          "as": "Suicides Rate Per 100,000 population"
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Suicides Rate Per 100,000 population\"]) && isFinite(+datum[\"Suicides Rate Per 100,000 population\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {
+        "signal": "[data('source_0'), data('source_1'), data('source_2'), data('source_3'), data('source_4')]"
+      },
+      "type": "equalEarth"
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightgray"},
+          "stroke": {"value": "white"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_1"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightblue"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_2"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightgray"},
+          "stroke": {"value": "black"},
+          "tooltip": {
+            "signal": "isValid(datum[\"note\"]) ? datum[\"note\"] : \"\"+datum[\"note\"]"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"note: \" + (isValid(datum[\"note\"]) ? datum[\"note\"] : \"\"+datum[\"note\"])"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_3_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_3"},
+      "encode": {
+        "update": {
+          "fill": {"value": null},
+          "stroke": {"value": "black"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_4_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_4"},
+      "encode": {
+        "update": {
+          "cursor": {"value": "pointer"},
+          "fill": {
+            "scale": "color",
+            "field": "Suicides Rate Per 100,000 population"
+          },
+          "fillOpacity": {"value": 0.7},
+          "strokeWidth": [
+            {"test": "(length(data(\"select_store\")))", "value": 2},
+            {"value": 0}
+          ],
+          "tooltip": {
+            "signal": "{\"Country\": isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"], \"Suicides Rate Per 100,000 population\": format(datum[\"Suicides Rate Per 100,000 population\"], \".2f\")}"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"Suicides Rate Per 100,000 population: \" + (format(datum[\"Suicides Rate Per 100,000 population\"], \"\")) + \"; Country: \" + (isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"])"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "threshold",
+      "domain": [
+        200,
+        1000,
+        5000,
+        12000
+      ],
+      "range": {"scheme": "reds"},
+      "interpolate": "hcl"
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "labelOverlap": "greedy",
+      "symbolType": "circle",
+      "title": "Suicides Rate Per 100,000 population"
+    }
+  ],
+  "config": {}
+}

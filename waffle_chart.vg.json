@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "autosize": {"type": "fit-x", "contains": "padding"},
+  "background": "white",
+  "padding": 5,
+  "height": 320,
+  "title": {
+    "text": "Male or Female?",
+    "font": "sans-serif",
+    "fontSize": {"signal": "20"},
+    "frame": "group"
+  },
+  "style": "cell",
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/GiridharSharma11/DataVisualisation2/main/Data%20Extraction/suicides_male_female.csv?token=GHSAT0AAAAAACJC3UVYZ27VBSBCPYDX4EXKZJQPU6Q",
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [
+        {"type": "formula", "expr": "ceil (datum.id/10)", "as": "col"},
+        {"type": "formula", "expr": "datum.id - datum.col*10", "as": "row"}
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "width",
+      "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
+      "on": [
+        {
+          "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
+          "events": "window:resize"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "rect",
+      "style": ["rect"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "fill": {"scale": "color", "field": "sex"},
+          "description": {
+            "signal": "\"col: \" + (isValid(datum[\"col\"]) ? datum[\"col\"] : \"\"+datum[\"col\"]) + \"; row: \" + (isValid(datum[\"row\"]) ? datum[\"row\"] : \"\"+datum[\"row\"]) + \"; Sex: \" + (isValid(datum[\"sex\"]) ? datum[\"sex\"] : \"\"+datum[\"sex\"])"
+          },
+          "x": {"scale": "x", "field": "col"},
+          "width": {"scale": "x", "band": 1},
+          "y": {"scale": "y", "field": "row"},
+          "height": {"scale": "y", "band": 1}
+        }
+      }
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "text",
+      "style": ["text"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "align": {"value": "left"},
+          "dx": {"value": 100},
+          "dy": {"value": 200},
+          "fontSize": {"value": 15},
+          "fill": {"value": "rgb(255, 71, 26)"},
+          "x": {"signal": "width", "mult": 0.5},
+          "y": {"signal": "height", "mult": 0.5},
+          "text": {"value": "52% Male"},
+          "baseline": {"value": "middle"}
+        }
+      }
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "text",
+      "style": ["text"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "align": {"value": "left"},
+          "dx": {"value": -150},
+          "dy": {"value": 200},
+          "fontSize": {"value": 15},
+          "fill": {"value": "rgb(255, 187, 51)"},
+          "x": {"signal": "width", "mult": 0.5},
+          "y": {"signal": "height", "mult": 0.5},
+          "text": {"value": "48% Female"},
+          "baseline": {"value": "middle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": {"data": "source_0", "field": "col", "sort": true},
+      "range": [0, {"signal": "width"}],
+      "paddingInner": 0.09,
+      "paddingOuter": 0
+    },
+    {
+      "name": "y",
+      "type": "band",
+      "domain": {"data": "source_0", "field": "row", "sort": true},
+      "range": [0, {"signal": "height"}],
+      "paddingInner": 0.09,
+      "paddingOuter": 0
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "source_0", "field": "sex", "sort": true},
+      "range": ["rgb(255, 187, 51)", "rgb(255, 71, 26)"]
+    }
+  ],
+  "legends": [
+    {
+      "title": "Sex",
+      "fill": "color",
+      "symbolType": "square",
+      "encode": {"symbols": {"update": {"strokeWidth": {"value": 5}}}}
+    }
+  ],
+  "config": {
+    "style": {"cell": {"stroke": null}, "rect": {"strokeWidth": 5}},
+    "axis": {"domain": false}
+  }
+}

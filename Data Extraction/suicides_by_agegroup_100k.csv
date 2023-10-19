@@ -1,0 +1,606 @@
+﻿country,age,suicides_per_100k
+Korea,75+ years,4294.26
+Hungary,75+ years,4247.02
+Austria,75+ years,3848.07
+Bulgaria,75+ years,3595.58
+Singapore,75+ years,3373.53
+France,75+ years,3128.56
+Russia,75+ years,3026
+Cuba,75+ years,2789.04
+Lithuania,35-54 years,2696.75
+Belgium,75+ years,2693.9
+Ukraine,75+ years,2668.48
+Slovenia,75+ years,2628.03
+Japan,75+ years,2617.73
+Croatia,75+ years,2567.3
+Uruguay,75+ years,2559.7
+Lithuania,55-74 years,2496.04
+Lithuania,75+ years,2470.21
+Serbia,75+ years,2380.23
+Russian Federation,35-54 years,2378.83
+Czech Republic,75+ years,2371.91
+Russian Federation,55-74 years,2321.51
+Hungary,55-74 years,2292.21
+Kazakhstan,75+ years,2261.81
+Luxembourg,75+ years,2206.52
+Latvia,75+ years,2161.59
+Estonia,75+ years,2129.22
+Russian Federation,25-34 years,2114.97
+Hungary,35-54 years,2113.02
+Germany,75+ years,2082.8
+Ukraine,55-74 years,2081.43
+Republic of Korea,55-74 years,2006.38
+Kazakhstan,35-54 years,1984.87
+Suriname,75+ years,1973.42
+Switzerland,75+ years,1952.76
+Japan,55-74 years,1936.97
+Kazakhstan,55-74 years,1936.14
+Ukraine,35-54 years,1933.55
+Belarus,75+ years,1904.34
+Austria,55-74 years,1904.17
+Kazakhstan,25-34 years,1896.83
+Belarus,55-74 years,1871.59
+Belarus,35-54 years,1860.33
+Finland,35-54 years,1858.51
+Portugal,75+ years,1792.94
+Slovenia,55-74 years,1751.25
+Lithuania,25-34 years,1745.96
+Latvia,55-74 years,1733.23
+Finland,75+ years,1693.06
+Belgium,35-54 years,1682.52
+Latvia,35-54 years,1663.36
+Belgium,55-74 years,1649.54
+Finland,55-74 years,1614.24
+Japan,35-54 years,1600.46
+France,55-74 years,1592.85
+Finland,25-34 years,1573.3
+France,35-54 years,1548.74
+Spain,75+ years,1546.95
+Estonia,55-74 years,1541.47
+Sweden,75+ years,1533.84
+United States,75+ years,1530.37
+Estonia,35-54 years,1489.25
+Guyana,25-34 years,1486.49
+Croatia,55-74 years,1471.47
+Argentina,75+ years,1471.3
+Guyana,35-54 years,1469.41
+Austria,35-54 years,1458.21
+Bulgaria,55-74 years,1450.27
+Uruguay,55-74 years,1437.69
+Cuba,55-74 years,1427.94
+Denmark,75+ years,1420.97
+Suriname,25-34 years,1409.4
+Belarus,25-34 years,1405.27
+Ukraine,25-34 years,1398.59
+Luxembourg,55-74 years,1389.66
+Russian Federation,15-24 years,1368.26
+Italy,75+ years,1340.78
+Israel,75+ years,1335.9
+Suriname,35-54 years,1331.69
+Republic of Korea,35-54 years,1311.87
+Slovenia,35-54 years,1305.94
+Kazakhstan,15-24 years,1304.36
+Sri Lanka,75+ years,1260.52
+Guyana,55-74 years,1251.63
+Suriname,55-74 years,1229.38
+Guyana,15-24 years,1224.28
+Netherlands,75+ years,1209.09
+Czech Republic,55-74 years,1205.41
+New Zealand,15-24 years,1189.74
+Puerto Rico,75+ years,1188.85
+Iceland,55-74 years,1178.23
+Sweden,55-74 years,1170.17
+Belgium,25-34 years,1168.43
+Luxembourg,35-54 years,1163.87
+Finland,15-24 years,1154.92
+Japan,25-34 years,1146.8
+Czech Republic,35-54 years,1141.56
+Poland,35-54 years,1134.44
+Lithuania,15-24 years,1127.17
+Latvia,25-34 years,1124.03
+Guyana,75+ years,1123.79
+Kyrgyzstan,75+ years,1122.49
+Romania,75+ years,1115.78
+Mauritius,25-34 years,1113.93
+Singapore,55-74 years,1112.41
+Sweden,35-54 years,1108.39
+Serbia,55-74 years,1102.59
+New Zealand,25-34 years,1102.3
+Poland,55-74 years,1090.06
+Suriname,15-24 years,1088.83
+Romania,55-74 years,1074.94
+Republic of Korea,25-34 years,1061.54
+Chile,75+ years,1057.58
+Switzerland,55-74 years,1050.97
+Australia,75+ years,1049.72
+Australia,25-34 years,1028.66
+Austria,25-34 years,1027.35
+France,25-34 years,1020.98
+Romania,35-54 years,1018.29
+Trinidad and Tobago,25-34 years,1015.6
+Iceland,25-34 years,1015.55
+Germany,55-74 years,1013.32
+Canada,35-54 years,1002.4
+Iceland,35-54 years,998.95
+United States,35-54 years,994.52
+Norway,55-74 years,992.63
+United States,55-74 years,988.47
+Kyrgyzstan,55-74 years,984.93
+Hungary,25-34 years,983.24
+Australia,35-54 years,982.41
+Norway,35-54 years,979.58
+Slovakia,75+ years,978.23
+Uruguay,35-54 years,976.27
+New Zealand,75+ years,972.25
+Estonia,25-34 years,956.32
+Trinidad and Tobago,75+ years,955.38
+Mauritius,35-54 years,950.66
+Norway,75+ years,948.49
+Kyrgyzstan,35-54 years,940.51
+Croatia,35-54 years,934.51
+Ireland,25-34 years,930.05
+Poland,75+ years,913.54
+Norway,25-34 years,906.6
+Netherlands,55-74 years,903.64
+New Zealand,35-54 years,902.7
+Trinidad and Tobago,35-54 years,902.14
+Bulgaria,35-54 years,894.76
+Iceland,15-24 years,890.05
+Netherlands,35-54 years,888.11
+United States,25-34 years,878.69
+Ireland,35-54 years,877.45
+Sri Lanka,25-34 years,875.97
+Mauritius,15-24 years,868.41
+Cuba,35-54 years,856.75
+Denmark,55-74 years,856.46
+Canada,25-34 years,856.35
+Canada,75+ years,856.23
+Sri Lanka,55-74 years,849.68
+Puerto Rico,55-74 years,848.49
+Uruguay,25-34 years,845.14
+Trinidad and Tobago,55-74 years,830.84
+Portugal,55-74 years,827.26
+Canada,55-74 years,826.26
+Sri Lanka,15-24 years,824.57
+Sweden,25-34 years,822.85
+Argentina,55-74 years,820.51
+Germany,35-54 years,815.98
+Slovakia,35-54 years,810.73
+Australia,55-74 years,809.6
+Sri Lanka,35-54 years,807.43
+Austria,15-24 years,807.17
+Puerto Rico,35-54 years,804.85
+Chile,55-74 years,801.79
+Slovakia,55-74 years,798.16
+Luxembourg,25-34 years,794.91
+Ireland,15-24 years,793.33
+Ireland,55-74 years,793.06
+Norway,15-24 years,786.99
+New Zealand,55-74 years,786.12
+Ukraine,15-24 years,784.45
+Australia,15-24 years,783.34
+Switzerland,35-54 years,781.71
+Iceland,75+ years,779.2
+El Salvador,15-24 years,769.25
+Spain,55-74 years,766.77
+Kyrgyzstan,25-34 years,763.69
+Mauritius,75+ years,754.41
+Slovenia,25-34 years,754.2
+Canada,15-24 years,747.45
+Belarus,15-24 years,740.58
+Denmark,35-54 years,740.16
+El Salvador,25-34 years,738.77
+Chile,35-54 years,730.13
+Trinidad and Tobago,15-24 years,723.67
+Italy,55-74 years,719.24
+Singapore,35-54 years,716.25
+Mauritius,55-74 years,716.12
+Czech Republic,25-34 years,714.35
+Israel,55-74 years,708.63
+Chile,25-34 years,706.33
+Poland,25-34 years,705.05
+United States,15-24 years,703.45
+Estonia,15-24 years,702.75
+Japan,15-24 years,690.99
+Brazil,75+ years,684.77
+Uruguay,15-24 years,680.9
+United Kingdom,35-54 years,675.29
+Belgium,15-24 years,671.13
+Serbia,35-54 years,667.65
+Netherlands,25-34 years,662.15
+Latvia,15-24 years,654.99
+Singapore,25-34 years,638.21
+Republic of Korea,15-24 years,633.32
+Turkmenistan,25-34 years,627.62
+Turkmenistan,35-54 years,619.42
+Puerto Rico,25-34 years,617
+Ecuador,15-24 years,616.13
+United Kingdom,25-34 years,608.04
+United Kingdom,75+ years,605.9
+Turkmenistan,15-24 years,604.17
+Cuba,25-34 years,601.84
+Sweden,15-24 years,588.17
+Chile,15-24 years,585.59
+Turkmenistan,75+ years,580.79
+Bulgaria,25-34 years,575.34
+Saint Lucia,75+ years,575.28
+Luxembourg,15-24 years,562
+Romania,25-34 years,561.88
+Kyrgyzstan,15-24 years,560.25
+El Salvador,75+ years,556.67
+Saint Lucia,55-74 years,553.6
+Germany,25-34 years,549.19
+Argentina,15-24 years,548.56
+Aruba,75+ years,547.53
+Montenegro,75+ years,545.11
+Costa Rica,35-54 years,543.54
+Costa Rica,75+ years,541.69
+Thailand,25-34 years,541.03
+Slovenia,15-24 years,540.33
+Croatia,25-34 years,538.84
+Switzerland,25-34 years,535.88
+Costa Rica,25-34 years,533.95
+Argentina,35-54 years,528.95
+United Kingdom,55-74 years,527.21
+Saint Lucia,35-54 years,526.56
+Poland,15-24 years,521.54
+Spain,35-54 years,521.09
+Greece,75+ years,517.48
+Turkmenistan,55-74 years,516.75
+El Salvador,35-54 years,511.87
+Belize,75+ years,498.04
+Israel,35-54 years,496.42
+Hungary,15-24 years,496.08
+Czech Republic,15-24 years,491.56
+Ecuador,25-34 years,489.68
+France,15-24 years,488.96
+Colombia,75+ years,486.67
+Portugal,35-54 years,485.88
+Uzbekistan,35-54 years,484.06
+Italy,35-54 years,483.25
+Argentina,25-34 years,482.95
+Mexico,75+ years,482.76
+Thailand,75+ years,471.81
+Malta,75+ years,471.15
+Costa Rica,55-74 years,467.25
+Saint Vincent and Grenadines,75+ years,465.03
+Saint Lucia,25-34 years,464.39
+Panama,75+ years,463.91
+Singapore,15-24 years,463.81
+Seychelles,35-54 years,462.13
+Ireland,75+ years,459.75
+Colombia,15-24 years,457.82
+Thailand,35-54 years,457.11
+Saint Vincent and Grenadines,35-54 years,456.68
+Switzerland,15-24 years,455.84
+Thailand,55-74 years,454.62
+Brazil,55-74 years,448.08
+Bulgaria,15-24 years,443.29
+Croatia,15-24 years,443.19
+Slovakia,25-34 years,440.87
+Ecuador,75+ years,440.54
+Uzbekistan,25-34 years,436.28
+Costa Rica,15-24 years,435.06
+Malta,35-54 years,427.82
+Denmark,25-34 years,427.21
+Belize,35-54 years,425.68
+Israel,25-34 years,422.96
+Belize,25-34 years,422.29
+Georgia,75+ years,419.06
+Thailand,15-24 years,417.9
+Uzbekistan,55-74 years,416.46
+El Salvador,55-74 years,413.8
+Cuba,15-24 years,411.84
+Seychelles,75+ years,409.55
+Spain,25-34 years,404.3
+Brazil,35-54 years,396.54
+Serbia,25-34 years,394.96
+Malta,25-34 years,388.16
+Armenia,75+ years,384.71
+Netherlands,15-24 years,384.04
+Italy,25-34 years,381.58
+Uzbekistan,75+ years,377.46
+Uzbekistan,15-24 years,376.46
+Saint Vincent and Grenadines,25-34 years,373.9
+Germany,15-24 years,373.89
+Colombia,25-34 years,371.78
+United Kingdom,15-24 years,367.9
+Ecuador,55-74 years,367.63
+Aruba,25-34 years,366.43
+Belize,55-74 years,365.69
+Colombia,55-74 years,359.99
+Brazil,25-34 years,359.45
+Ecuador,35-54 years,357.08
+Romania,15-24 years,356.76
+Portugal,25-34 years,353.73
+Israel,15-24 years,350.55
+Belize,15-24 years,348.94
+Kiribati,15-24 years,341.27
+Panama,25-34 years,336.71
+Paraguay,75+ years,336.42
+Greece,55-74 years,333.07
+Malta,55-74 years,332.17
+Panama,55-74 years,330.16
+Mexico,25-34 years,323.27
+Mexico,15-24 years,321.38
+Paraguay,15-24 years,315.77
+Puerto Rico,15-24 years,312.64
+Panama,15-24 years,300.46
+Mexico,55-74 years,300.09
+Montenegro,55-74 years,299.77
+Aruba,55-74 years,297.85
+Panama,35-54 years,291.65
+Mexico,35-54 years,289.31
+Colombia,35-54 years,287.98
+Georgia,55-74 years,276.67
+Slovakia,15-24 years,273.91
+Saint Lucia,15-24 years,273
+Seychelles,55-74 years,272.29
+Greece,35-54 years,271.28
+Aruba,35-54 years,270.93
+Brazil,15-24 years,268.25
+Denmark,15-24 years,265.03
+Fiji,75+ years,260.69
+Spain,15-24 years,255.84
+Guatemala,75+ years,255.3
+Seychelles,25-34 years,254.65
+Barbados,35-54 years,249.6
+Armenia,55-74 years,247.45
+Greece,25-34 years,243.65
+Paraguay,55-74 years,243.31
+Malta,15-24 years,242.82
+Guatemala,25-34 years,241.57
+Guatemala,15-24 years,232.71
+Serbia,15-24 years,232.17
+Italy,15-24 years,230.8
+Guatemala,35-54 years,222.95
+Albania,75+ years,222.59
+Saint Vincent and Grenadines,55-74 years,221.28
+Paraguay,25-34 years,220.27
+Paraguay,35-54 years,212.12
+Grenada,55-74 years,210.17
+Barbados,55-74 years,208.75
+Seychelles,15-24 years,202.75
+Portugal,15-24 years,201.03
+Albania,15-24 years,198.58
+Bahrain,25-34 years,196.75
+Barbados,25-34 years,189.87
+Albania,25-34 years,188.12
+Montenegro,35-54 years,182.59
+Saint Vincent and Grenadines,15-24 years,180.17
+Guatemala,55-74 years,175.84
+Georgia,35-54 years,168.37
+Kiribati,35-54 years,166.82
+Armenia,35-54 years,163.4
+Kiribati,55-74 years,161.95
+Albania,35-54 years,160.21
+Grenada,35-54 years,156.96
+Kiribati,25-34 years,149.18
+Kuwait,25-34 years,142.85
+Georgia,25-34 years,142.56
+Cyprus,35-54 years,142.3
+Greece,15-24 years,140.24
+Barbados,75+ years,137.75
+Albania,55-74 years,136.17
+Kazakhstan,5-14 years,135.51
+Bahrain,35-54 years,133.51
+Cyprus,25-34 years,132.62
+Suriname,5-14 years,129.6
+Grenada,75+ years,127.65
+Cyprus,55-74 years,125.56
+Grenada,25-34 years,123.91
+Philippines,75+ years,121.23
+Bahamas,35-54 years,118.16
+Nicaragua,15-24 years,115.7
+Aruba,15-24 years,113.78
+Montenegro,25-34 years,112.2
+Fiji,25-34 years,111.64
+Armenia,25-34 years,108.82
+Nicaragua,25-34 years,107.95
+Fiji,15-24 years,106.39
+Macau,75+ years,104.35
+Maldives,75+ years,102.46
+Antigua and Barbuda,55-74 years,100.73
+Guyana,5-14 years,100.32
+Fiji,55-74 years,100.22
+Georgia,15-24 years,99.97
+Kuwait,35-54 years,98.24
+Cyprus,75+ years,98.01
+Azerbaijan,75+ years,97.31
+Barbados,15-24 years,96.3
+Russian Federation,5-14 years,95.56
+Cyprus,15-24 years,87.77
+Azerbaijan,55-74 years,85.89
+Kyrgyzstan,5-14 years,85.43
+Philippines,15-24 years,85.21
+Fiji,35-54 years,84.22
+Philippines,25-34 years,83.43
+Bahamas,25-34 years,83.02
+Nicaragua,35-54 years,80.59
+Nicaragua,55-74 years,79.68
+Qatar,35-54 years,76.26
+Nicaragua,75+ years,75.8
+Ecuador,5-14 years,74.15
+Philippines,55-74 years,73.8
+San Marino,55-74 years,73.35
+Azerbaijan,35-54 years,72.42
+Bahrain,15-24 years,71.48
+Qatar,25-34 years,69.94
+Kuwait,15-24 years,68.15
+Qatar,15-24 years,67.96
+Philippines,35-54 years,67.29
+Qatar,75+ years,66.18
+Ukraine,5-14 years,65.16
+Antigua and Barbuda,35-54 years,63.41
+Armenia,15-24 years,62.41
+South Africa,75+ years,61.95
+Mauritius,5-14 years,61.05
+Bahrain,55-74 years,60.19
+Kiribati,5-14 years,59.29
+Bahamas,15-24 years,57.36
+Bulgaria,5-14 years,56.84
+Turkey,75+ years,56.82
+New Zealand,5-14 years,55.21
+Estonia,5-14 years,54.77
+Lithuania,5-14 years,52.75
+Azerbaijan,25-34 years,52.05
+Trinidad and Tobago,5-14 years,51.88
+South Africa,25-34 years,50.67
+Canada,5-14 years,50.03
+Belarus,5-14 years,49.02
+Mongolia,25-34 years,48.82
+Bosnia and Herzegovina,75+ years,48.32
+Uzbekistan,5-14 years,47.45
+San Marino,25-34 years,47.26
+Bahamas,55-74 years,46.41
+Turkmenistan,5-14 years,45.98
+El Salvador,5-14 years,45.58
+United States,5-14 years,45.47
+Colombia,5-14 years,45.15
+Norway,5-14 years,44.47
+Romania,5-14 years,43.9
+Kuwait,55-74 years,43.61
+Republic of Korea,5-14 years,43.08
+Montenegro,15-24 years,42.77
+Argentina,5-14 years,42.32
+Cabo Verde,35-54 years,42.32
+Azerbaijan,15-24 years,41.57
+South Africa,35-54 years,41.15
+Mongolia,15-24 years,40.91
+Sri Lanka,5-14 years,40.79
+South Africa,15-24 years,40.6
+Cabo Verde,75+ years,40.37
+Chile,5-14 years,40.22
+Luxembourg,5-14 years,39.6
+Uruguay,5-14 years,39.26
+Paraguay,5-14 years,38.48
+Mongolia,35-54 years,37.5
+Turkey,55-74 years,37.11
+Singapore,5-14 years,36.77
+Qatar,55-74 years,36.18
+Latvia,5-14 years,36.15
+Belgium,5-14 years,34.98
+Grenada,15-24 years,34.52
+Mexico,5-14 years,34.38
+Turkey,15-24 years,34.28
+South Africa,55-74 years,33.92
+Turkey,35-54 years,33.86
+Poland,5-14 years,32.99
+Slovenia,5-14 years,32.87
+Belize,5-14 years,32.85
+Turkey,25-34 years,32.54
+Bahamas,75+ years,32.36
+Japan,5-14 years,32.28
+Costa Rica,5-14 years,32.23
+Austria,5-14 years,31.26
+Mongolia,75+ years,30.95
+Finland,5-14 years,30.08
+Saint Vincent and Grenadines,5-14 years,29.57
+Czech Republic,5-14 years,28.2
+Ireland,5-14 years,28.09
+Iceland,5-14 years,27.76
+Croatia,5-14 years,27.53
+Saint Lucia,5-14 years,27.29
+Jamaica,75+ years,27.2
+Bosnia and Herzegovina,55-74 years,26.49
+Macau,55-74 years,26.33
+Mongolia,55-74 years,26.21
+San Marino,35-54 years,25.01
+Cuba,5-14 years,24.54
+Hungary,5-14 years,24.5
+Sweden,5-14 years,24.3
+United Arab Emirates,55-74 years,24.27
+Jamaica,55-74 years,23.76
+Australia,5-14 years,23.68
+Maldives,35-54 years,23.41
+Bosnia and Herzegovina,35-54 years,23.37
+France,5-14 years,23.16
+United Arab Emirates,25-34 years,22.02
+Panama,5-14 years,21.17
+Thailand,5-14 years,20.2
+Germany,5-14 years,19.51
+Netherlands,5-14 years,19.49
+Jamaica,25-34 years,19.32
+United Arab Emirates,35-54 years,19.26
+United Arab Emirates,15-24 years,19.25
+Albania,5-14 years,19.09
+Macau,35-54 years,19.06
+Jamaica,35-54 years,18.84
+Cabo Verde,25-34 years,18.62
+Oman,75+ years,18.51
+Guatemala,5-14 years,18.33
+Brazil,5-14 years,17.63
+Puerto Rico,5-14 years,17.45
+Switzerland,5-14 years,16.91
+Maldives,25-34 years,16.82
+Cabo Verde,55-74 years,16.8
+Slovakia,5-14 years,16.26
+Israel,5-14 years,15.51
+Maldives,15-24 years,15.32
+Antigua and Barbuda,25-34 years,15
+Seychelles,5-14 years,14.33
+Spain,5-14 years,14.11
+Macau,25-34 years,13.36
+Italy,5-14 years,13.22
+Jamaica,15-24 years,13.19
+Nicaragua,5-14 years,13.1
+Portugal,5-14 years,12.52
+Denmark,5-14 years,11.82
+Montenegro,5-14 years,11.59
+Fiji,5-14 years,10.7
+Cabo Verde,15-24 years,10.49
+Malta,5-14 years,9.89
+Serbia,5-14 years,9.85
+Georgia,5-14 years,9.75
+United Arab Emirates,75+ years,9.46
+Armenia,5-14 years,9.42
+Bosnia and Herzegovina,25-34 years,9.2
+Barbados,5-14 years,8.86
+Macau,15-24 years,8.64
+Grenada,5-14 years,7.79
+Azerbaijan,5-14 years,7
+Bahamas,5-14 years,6.97
+United Kingdom,5-14 years,6.58
+Greece,5-14 years,6.4
+Maldives,5-14 years,6.07
+Bahrain,5-14 years,5.31
+Cabo Verde,5-14 years,5.24
+Philippines,5-14 years,4.87
+Turkey,5-14 years,4.56
+Jamaica,5-14 years,4.13
+South Africa,5-14 years,3.2
+Kuwait,5-14 years,3.08
+Bosnia and Herzegovina,15-24 years,2.99
+Oman,25-34 years,2.48
+Oman,15-24 years,1.88
+Oman,35-54 years,1.83
+Oman,55-74 years,1.8
+Qatar,5-14 years,1.63
+United Arab Emirates,5-14 years,0.63
+Bosnia and Herzegovina,5-14 years,0.44
+Antigua and Barbuda,5-14 years,0
+Antigua and Barbuda,15-24 years,0
+Antigua and Barbuda,75+ years,0
+Kuwait,75+ years,0
+Aruba,5-14 years,0
+Bahrain,75+ years,0
+Kiribati,75+ years,0
+Macau,5-14 years,0
+Maldives,55-74 years,0
+Oman,5-14 years,0
+Dominica,75+ years,0
+Dominica,55-74 years,0
+Dominica,5-14 years,0
+Dominica,25-34 years,0
+Saint Kitts and Nevis,15-24 years,0
+Saint Kitts and Nevis,25-34 years,0
+Saint Kitts and Nevis,35-54 years,0
+Saint Kitts and Nevis,5-14 years,0
+Saint Kitts and Nevis,55-74 years,0
+Saint Kitts and Nevis,75+ years,0
+Dominica,15-24 years,0
+San Marino,15-24 years,0
+San Marino,5-14 years,0
+San Marino,75+ years,0
+Cyprus,5-14 years,0
+Dominica,35-54 years,0

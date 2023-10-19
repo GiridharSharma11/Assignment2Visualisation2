@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="js/vega_vis.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>World Suicide Rate</title>
+</head>
+<body>
+
+    <!-- Heading  -->
+    <div class="pure-g" id = "header">
+        <div class="pure-u-1 pure-u-md-3-24"></div>
+        <div class="pure-u-1 pure-u-md-18-24" id = "title">
+            <h1>WORLD SUICIDE RATE (1985-2016)</h1>
+            <h5>FIT 3179 Data Visualisation 2 by Giridhar Gopal Sharma</h5>
+        </div>
+        <div class="pure-u-1 pure-u-md-3-24"></div>
+    </div>
+
+    <!-- Chloropeth Map  -->
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+        <div class="pure-u-1 pure-u-md-18-24" id = 'row'>
+            <h3>Overall Suicide Rate per 100k population across the world</h3>
+            <p> Firstly, when exploring the overall trend of suicide rate corss the world Russia has the highest suicide rate with 
+                 <span class = "bold_red">11305 </span> per 100,00 population. Follow by, Korea being the country with second highest 
+                 suicide rate with <span class = "bold_red">9350 </span> per 100,000 population.
+                
+            </p>
+            <div id="map"></div>
+        </div>
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+    </div>
+
+    <!-- Waffle Chart  -->
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-8"> </div>
+        <div class="pure-u-1 pure-u-md-18-24" id = 'row'>
+            <div class="pure-u-1 pure-u-md-11-24"> 
+                <h3>Female or Male?</h3>
+                <p>
+                    When comparing the overall suicide committed for male and female it can be seen that male are <span class = "bold_red">more likely</span> 
+                    to commit suicide comapre to female. 
+                </p>
+                <div id="waffle"></div>
+            
+            </div>  
+        </div>
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+    </div>
+
+    <!-- Stacked Bar Chart  -->
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+        <div class="pure-u-1 pure-u-md-18-24" id = 'row'>
+            <h3>Top 10 Countries with Highest Suicide Rate per Age Group</h3>
+            <p> Lithuania has the highest suicide rate per its population with majority of rate coming from <span class = "bold_red">55-74 age group & 35-54 age group</span>
+                with a suicide rate of 2496 and 2696 respectively. Moreover, Korea has the hgihest suicide rate for <span class = "bold_red"> 75+ age group</span>
+                with a suicide rate of 4294 per its population. 
+            </p>
+            <div id="stack"></div>
+        </div>
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+    </div>
+
+    <!-- Line CHART  -->
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+        <div class="pure-u-1 pure-u-md-18-24" id = 'row'>
+            <h3>Average Suicide Rates per 100k population across different Age Groups</h3>
+            <p> There is a spike increase in suicide rate for all age group between year <span class = "bold_red">1994-1996</span>
+                except for 5-14 years age group. Upon further exploration, elderly age group of 75+ years has the highest suicide rate reaching 
+                <span class = "bold_red">4709/100K population</span> in 1995. On the other hand, younger age group such as those from 
+                <span class = "bold_red">5-14 years old</span> are least worrying showing non fluctuating trend acorss the years. 
+                
+            </p>
+            <div id="line"></div>
+        </div>
+        <div class="pure-u-1 pure-u-md-3-24"> </div>
+    </div>
+
+</body>
+</html>
