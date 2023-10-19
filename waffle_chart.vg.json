@@ -14,7 +14,7 @@
   "data": [
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/GiridharSharma11/DataVisualisation2/main/Data%20Extraction/suicides_male_female.csv?token=GHSAT0AAAAAACJC3UVYZ27VBSBCPYDX4EXKZJQPU6Q",
+      "url": "https://raw.githubusercontent.com/GiridharSharma11/Assignment2Visualisation2/main/Data%20Extraction/suicides_male_female.csv",
       "format": {"type": "csv", "delimiter": ","},
       "transform": [
         {"type": "formula", "expr": "ceil (datum.id/10)", "as": "col"},
