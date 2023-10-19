@@ -1,247 +1,197 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "autosize": {"type": "fit-x", "contains": "padding"},
   "background": "white",
   "padding": 5,
-  "height": 350,
-  "style": "cell",
+  "width": 900,
+  "height": 500,
   "data": [
-    {"name": "agegroup_highlight_store"},
     {
       "name": "source_0",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/ne_110m_ocean.json",
+      "format": {"type": "topojson", "feature": "ne_110m_ocean"}
+    },
+    {
+      "name": "source_1",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/bounding_box.json",
+      "format": {"type": "topojson", "feature": "ne_110m_wgs84_bounding_box"}
+    },
+    {
+      "name": "source_3",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/graticules.json",
+      "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+    },
+    {
+      "name": "source_5",
       "url": "https://raw.githubusercontent.com/GiridharSharma11/Assignment2Visualisation2/main/Data%20Extraction/suicides_by_agegroup_100k.csv",
-      "format": {"type": "csv", "delimiter": ","},
+      "format": {"type": "csv", "delimiter": ","}
+    },
+    {
+      "name": "source_2",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/basemap_2.json",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"},
       "transform": [
         {
-          "type": "aggregate",
-          "groupby": ["country", "age"],
-          "ops": ["mean"],
-          "fields": ["suicides_per_100k"],
-          "as": ["mean_suicides_per_100k"]
+          "type": "formula",
+          "expr": "'Data is not available in ' + datum.properties.NAME",
+          "as": "note"
+        }
+      ]
+    },
+    {
+      "name": "source_4",
+      "url": "https://raw.githubusercontent.com/sulkkw/FIT3179-Week9-HW/main/js/basemap.json",
+      "format": {
+        "type": "topojson",
+        "feature": "ne_110m_admin_0_countries",
+        "parse": {}
+      },
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum[\"properties\"] && datum[\"properties\"][\"NAME\"]",
+          "as": "properties.NAME"
         },
         {
-          "type": "stack",
-          "groupby": ["country"],
-          "field": "mean_suicides_per_100k",
-          "sort": {"field": ["age"], "order": ["ascending"]},
-          "as": ["mean_suicides_per_100k_start", "mean_suicides_per_100k_end"],
-          "offset": "zero"
+          "type": "lookup",
+          "from": "source_5",
+          "key": "country",
+          "fields": ["properties.NAME"],
+          "values": ["suicides_per_100k"]
+        },
+        {
+          "type": "formula",
+          "expr": "datum.suicides_per_100k ",
+          "as": "Suicides Rate Per 100,000 population"
         },
         {
           "type": "filter",
-          "expr": "isValid(datum[\"mean_suicides_per_100k\"]) && isFinite(+datum[\"mean_suicides_per_100k\"])"
+          "expr": "isValid(datum[\"Suicides Rate Per 100,000 population\"]) && isFinite(+datum[\"Suicides Rate Per 100,000 population\"])"
         }
       ]
     }
   ],
-  "signals": [
+  "projections": [
     {
-      "name": "width",
-      "init": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
-      "on": [
-        {
-          "update": "isFinite(containerSize()[0]) ? containerSize()[0] : 200",
-          "events": "window:resize"
-        }
-      ]
-    },
-    {
-      "name": "unit",
-      "value": {},
-      "on": [
-        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
-      ]
-    },
-    {
-      "name": "agegroup_highlight_age_legend",
-      "value": null,
-      "on": [
-        {
-          "events": [
-            {
-              "source": "view",
-              "type": "click",
-              "markname": "age_legend_symbols"
-            },
-            {
-              "source": "view",
-              "type": "click",
-              "markname": "age_legend_labels"
-            },
-            {
-              "source": "view",
-              "type": "click",
-              "markname": "age_legend_entries"
-            }
-          ],
-          "update": "datum.value || item().items[0].items[0].datum.value",
-          "force": true
-        },
-        {
-          "events": [{"source": "view", "type": "click"}],
-          "update": "!event.item || !datum ? null : agegroup_highlight_age_legend",
-          "force": true
-        }
-      ]
-    },
-    {
-      "name": "agegroup_highlight",
-      "update": "vlSelectionResolve(\"agegroup_highlight_store\", \"union\", true, true)"
-    },
-    {
-      "name": "agegroup_highlight_tuple",
-      "update": "agegroup_highlight_age_legend !== null ? {fields: agegroup_highlight_tuple_fields, values: [agegroup_highlight_age_legend]} : null"
-    },
-    {
-      "name": "agegroup_highlight_tuple_fields",
-      "value": [{"type": "E", "field": "age"}]
-    },
-    {
-      "name": "agegroup_highlight_toggle",
-      "value": false,
-      "on": [
-        {
-          "events": {"merge": [{"source": "view", "type": "click"}]},
-          "update": "event.shiftKey"
-        }
-      ]
-    },
-    {
-      "name": "agegroup_highlight_modify",
-      "on": [
-        {
-          "events": {"signal": "agegroup_highlight_tuple"},
-          "update": "modify(\"agegroup_highlight_store\", agegroup_highlight_toggle ? null : agegroup_highlight_tuple, agegroup_highlight_toggle ? null : true, agegroup_highlight_toggle ? agegroup_highlight_tuple : null)"
-        }
-      ]
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {
+        "signal": "[data('source_0'), data('source_1'), data('source_2'), data('source_3'), data('source_4')]"
+      },
+      "type": "equalEarth"
     }
   ],
   "marks": [
     {
-      "name": "marks",
-      "type": "rect",
-      "style": ["bar"],
-      "interactive": true,
+      "name": "layer_0_marks",
+      "type": "shape",
+      "style": ["geoshape"],
       "from": {"data": "source_0"},
       "encode": {
         "update": {
+          "fill": {"value": "lightgray"},
+          "stroke": {"value": "white"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_1"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightblue"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_2"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightgray"},
+          "stroke": {"value": "black"},
+          "tooltip": {
+            "signal": "isValid(datum[\"note\"]) ? datum[\"note\"] : \"\"+datum[\"note\"]"
+          },
+          "ariaRoleDescription": {"value": "geoshape"},
+          "description": {
+            "signal": "\"note: \" + (isValid(datum[\"note\"]) ? datum[\"note\"] : \"\"+datum[\"note\"])"
+          }
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_3_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_3"},
+      "encode": {
+        "update": {
+          "fill": {"value": null},
+          "stroke": {"value": "black"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_4_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_4"},
+      "encode": {
+        "update": {
           "cursor": {"value": "pointer"},
-          "fill": {"scale": "color", "field": "age"},
-          "opacity": [
-            {
-              "test": "!length(data(\"agegroup_highlight_store\")) || vlSelectionTest(\"agegroup_highlight_store\", datum)",
-              "value": 0.6
-            },
-            {"value": 0.2}
+          "fill": {
+            "scale": "color",
+            "field": "Suicides Rate Per 100,000 population"
+          },
+          "fillOpacity": {"value": 0.7},
+          "strokeWidth": [
+            {"test": "(length(data(\"select_store\")))", "value": 2},
+            {"value": 0}
           ],
           "tooltip": {
-            "signal": "{\"Age Group\": isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"], \"Average Suicide Rate\": format(datum[\"mean_suicides_per_100k\"], \".2f\")}"
+            "signal": "{\"Country\": isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"], \"Suicides Rate Per 100,000 population\": format(datum[\"Suicides Rate Per 100,000 population\"], \".2f\")}"
           },
-          "ariaRoleDescription": {"value": "bar"},
+          "ariaRoleDescription": {"value": "geoshape"},
           "description": {
-            "signal": "\"Average Suicide Rate per 100k: \" + (format(datum[\"mean_suicides_per_100k\"], \"\")) + \"; country: \" + (isValid(datum[\"country\"]) ? datum[\"country\"] : \"\"+datum[\"country\"]) + \"; Age Group: \" + (isValid(datum[\"age\"]) ? datum[\"age\"] : \"\"+datum[\"age\"]) + \"; Average Suicide Rate: \" + (format(datum[\"mean_suicides_per_100k\"], \".2f\"))"
-          },
-          "x": {"scale": "x", "field": "mean_suicides_per_100k_end"},
-          "x2": {"scale": "x", "field": "mean_suicides_per_100k_start"},
-          "y": {"scale": "y", "field": "country"},
-          "height": {"scale": "y", "band": 1}
+            "signal": "\"Suicides Rate Per 100,000 population: \" + (format(datum[\"Suicides Rate Per 100,000 population\"], \"\")) + \"; Country: \" + (isValid(datum[\"properties.NAME\"]) ? datum[\"properties.NAME\"] : \"\"+datum[\"properties.NAME\"])"
+          }
         }
-      }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
     }
   ],
   "scales": [
     {
-      "name": "x",
-      "type": "linear",
-      "domain": {
-        "data": "source_0",
-        "fields": ["mean_suicides_per_100k_start", "mean_suicides_per_100k_end"]
-      },
-      "range": [0, {"signal": "width"}],
-      "nice": true,
-      "zero": true
-    },
-    {
-      "name": "y",
-      "type": "band",
-      "domain": {"data": "source_0", "field": "country", "sort": true},
-      "range": [0, {"signal": "height"}],
-      "paddingInner": 0.1,
-      "paddingOuter": 0.05
-    },
-    {
       "name": "color",
-      "type": "ordinal",
+      "type": "threshold",
       "domain": [
-        "5-14 years",
-        "15-24 years",
-        "25-34 years",
-        "35-54 years",
-        "55-74 years",
-        "75+ years"
+        200,
+        1000,
+        5000,
+        12000
       ],
-      "range": [
-        "#e41a1c",
-        "#984ea3",
-        "#ff7f00",
-        "#a6cee3",
-        "#377eb8",
-        "#a65628"
-      ]
+      "range": {"scheme": "reds"},
+      "interpolate": "hcl"
     }
-  ],
-  "axes": [
-    {
-      "scale": "x",
-      "orient": "bottom",
-      "grid": false,
-      "title": "Average Suicide Rate per 100k",
-      "labelFlush": true,
-      "labelOverlap": true,
-      "tickCount": {"signal": "ceil(width/40)"},
-      "zindex": 0
-    },
-    {"scale": "y", "orient": "left", "grid": false, "zindex": 0}
   ],
   "legends": [
     {
-      "title": "Age Group",
       "fill": "color",
-      "symbolType": "square",
-      "encode": {
-        "labels": {
-          "name": "age_legend_labels",
-          "interactive": true,
-          "update": {
-            "opacity": [
-              {
-                "test": "(!length(data(\"agegroup_highlight_store\")) || (agegroup_highlight[\"age\"] && indexof(agegroup_highlight[\"age\"], datum.value) >= 0))",
-                "value": 1
-              },
-              {"value": 0.35}
-            ]
-          }
-        },
-        "symbols": {
-          "name": "age_legend_symbols",
-          "interactive": true,
-          "update": {
-            "opacity": [
-              {
-                "test": "(!length(data(\"agegroup_highlight_store\")) || (agegroup_highlight[\"age\"] && indexof(agegroup_highlight[\"age\"], datum.value) >= 0))",
-                "value": 0.6
-              },
-              {"value": 0.35}
-            ]
-          }
-        },
-        "entries": {
-          "name": "age_legend_entries",
-          "interactive": true,
-          "update": {"fill": {"value": "transparent"}}
-        }
-      }
+      "labelOverlap": "greedy",
+      "symbolType": "circle",
+      "title": "Suicides Rate Per 100,000 population"
     }
   ],
-  "config": {"style": {"cell": {"stroke": null}}, "axis": {"grid": false}}
+  "config": {}
 }
