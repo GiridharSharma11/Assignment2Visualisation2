@@ -9,7 +9,7 @@
     {"name": "agegroup_highlight_store"},
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/GiridharSharma11/DataVisualisation2/main/Data%20Extraction/top10_suicides_by_agegroup_100k.csv?token=GHSAT0AAAAAACJC3UVYVCV5Q3FK3FNMYQGOZJQPUSA",
+      "url": "https://raw.githubusercontent.com/GiridharSharma11/Assignment2Visualisation2/main/Data%20Extraction/top10_suicides_by_agegroup_100k.csv",
       "format": {"type": "csv", "delimiter": ","},
       "transform": [
         {
