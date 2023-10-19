@@ -8,7 +8,7 @@
   "data": [
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/GiridharSharma11/DataVisualisation2/main/Data%20Extraction/suicides_age_per_year.csv?token=GHSAT0AAAAAACJC3UVY4FTEDCMNIFBIPLXGZJQPT5Q",
+      "url": "https://raw.githubusercontent.com/GiridharSharma11/Assignment2Visualisation2/main/Data%20Extraction/suicides_age_per_year.csv",
       "format": {"type": "csv", "parse": {"year": "date"}, "delimiter": ","},
       "transform": [
         {
